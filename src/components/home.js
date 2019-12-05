@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col, Container, Navbar } from 'react-bootstrap'
+import  Map from './map'
 
 export default function home () {
   return (
@@ -10,7 +11,7 @@ export default function home () {
     </Navbar>
     <Row>
       <Col>
-        PUT MAP HERE
+        <Map/>
       </Col>
     </Row>
   </Container>
