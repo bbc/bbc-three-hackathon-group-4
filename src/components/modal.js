@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import { Modal, ListGroup, Col, Row } from 'react-bootstrap'
 import './modal.css'
 import DemographicImage from '../assets/demographic.png'
+import regionData from '../components/regionData.json'
 
 class modal extends Component {
   constructor (props) {
     super(props)
+  }
+
+  componentDidMount() {
+    console.log(regionData);
   }
 
   render () {
