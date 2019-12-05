@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@amcharts/amcharts4": "^4.7.12",
+    "@amcharts/amcharts4-geodata": "^4.1.9",
     "@babel/polyfill": "^7.7.0",
     "bootstrap": "^4.4.1",
     "react": "^16.12.0",
