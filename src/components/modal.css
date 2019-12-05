@@ -8,3 +8,12 @@
   border: none;
   padding: 5px 1.2rem;
 }
+
+.common-characteristics .list-group-item {
+  border: none;
+  padding: 5px 1.2rem;
+}
+
+.row-wrapper {
+  padding: 10px;
+}
