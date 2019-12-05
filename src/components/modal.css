@@ -1,9 +1,3 @@
-.region-modal {
-  width: 100%;
-  height: 100%;
-  max-width: 80% !important;
-}
-
 .top-shows .list-group-item {
   border: none;
   padding: 5px 1.2rem;
@@ -16,4 +10,12 @@
 
 .row-wrapper {
   padding: 10px;
+}
+
+.modal-dialog {
+  max-width: 800px;
+}
+
+.modal-body {
+  padding: 20px 30px;
 }
