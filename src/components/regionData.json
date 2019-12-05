@@ -1,35 +1,33 @@
-{
-    "regions": [
-        {
-            "Greater London": {
-                "Top": [
-                    "show1",
-                    "show2"
-                ],
-                "Demgraphics": {
-                    "imgPath": "../"
-                },
-                "commonChars": [
-                    "tags1",
-                    "tags2"
-                ]
-            }
+    {
+        "Greater London": {
+            "Top": [
+                "Gavin & Stacey",
+                "The Young Offenders",
+                "RuPaul's drag race",
+                "Ladhood",
+                "My Mate's A Bad Date"
+            ],
+            "Demgraphics": {
+                "imgPath": "../"
+            },
+            "commonChars": [
+                "tags1",
+                "tags2"
+            ]
         },
-        {
-            "South East England": {
-                "Top": [
-                    "show1",
-                    "show2",
-                    "...."
-                ],
-                "Demgraphics": {
-                    "imgPath": "../"
-                },
-                "commonChars": [
-                    "tags1",
-                    "tags2"
-                ]
-            }
+        "Northern Ireland": {
+            "Top": [
+                "The Young Offenders ",
+                "Gavin & Stacey",
+                "Ladhood",
+                "RuPaul's drag race"
+            ],
+            "Demgraphics": {
+                "imgPath": "../"
+            },
+            "commonChars": [
+                "tags1",
+                "tags2"
+            ]
         }
-    ]
-}
+    }
