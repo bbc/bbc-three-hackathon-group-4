@@ -60,6 +60,16 @@ class Map extends Component {
 
     chart.projection = new am4maps.projections.Mercator();
 
+    // Pink-ish
+    chart.colors.list = [
+      am4core.color("#845EC2"),
+      am4core.color("#D65DB1"),
+      am4core.color("#FF6F91"),
+      am4core.color("#FF9671"),
+      am4core.color("#FFC75F"),
+      am4core.color("#F9F871")
+    ];
+
     let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 
     polygonSeries.heatRules.push({
@@ -88,34 +98,29 @@ class Map extends Component {
     let hs = polygonTemplate.states.create("hover");
     hs.properties.fill = chart.colors.getIndex(1).brighten(-0.5);
 
-  
+    // Set up heat legend
+    let heatLegend = chart.createChild(am4maps.HeatLegend);
+    heatLegend.series = polygonSeries;
+    heatLegend.align = "right";
+    heatLegend.width = am4core.percent(25);
+    heatLegend.marginRight = am4core.percent(4);
+    heatLegend.minValue = 0;
+    heatLegend.maxValue = 40000000;
+    heatLegend.valign = "bottom";
 
+    // Set up custom heat map legend labels using axis ranges
+    var minRange = heatLegend.valueAxis.axisRanges.create();
+    minRange.value = heatLegend.minValue;
+    minRange.label.text = "Least Viewed";
+    var maxRange = heatLegend.valueAxis.axisRanges.create();
+    maxRange.value = heatLegend.maxValue;
+    maxRange.label.text = "Most Viewed";
 
-  // Set up heat legend
-  let heatLegend = chart.createChild(am4maps.HeatLegend);
-  heatLegend.series = polygonSeries;
-  heatLegend.align = "right";
-  heatLegend.width = am4core.percent(25);
-  heatLegend.marginRight = am4core.percent(4);
-  heatLegend.minValue = 0;
-  heatLegend.maxValue = 40000000;
-  heatLegend.valign = "bottom";
+    // Blank out internal heat legend value axis labels
+    heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function(labelText) {
+      return "";
+    });
 
-  // Set up custom heat map legend labels using axis ranges
-  var minRange = heatLegend.valueAxis.axisRanges.create();
-  minRange.value = heatLegend.minValue;
-  minRange.label.text = "Least Viewed";
-  var maxRange = heatLegend.valueAxis.axisRanges.create();
-  maxRange.value = heatLegend.maxValue;
-  maxRange.label.text = "Most Viewed";
-
-  // Blank out internal heat legend value axis labels
-  heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function(labelText) {
-    return "";
-  });
-
-
-  
     this.chart = chart;
   }
 
