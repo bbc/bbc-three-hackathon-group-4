@@ -45,7 +45,6 @@ class Map extends Component {
     regions["Northern Ireland"] = 3;
     regions["Ireland"] = 0;
 
-    chart.titles.create().text = 'United Kingdom';
     chart.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/ukHigh.json";
     chart.geodataSource.events.on("parseended", function (ev) {
       let data = [];
