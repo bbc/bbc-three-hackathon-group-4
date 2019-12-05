@@ -4,11 +4,23 @@ import React, { Component } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import Modal from './modal';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 am4core.useTheme(am4themes_animated);
 
 class Map extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { showMoadel: false }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    console.log('click')
+    this.setState({ showMoadel: true });
+  }
+
   componentDidMount() {
     let chart = am4core.create("chartdiv", am4maps.MapChart);
 
@@ -45,6 +57,18 @@ class Map extends Component {
     polygonTemplate.nonScalingStroke = true;
     polygonTemplate.strokeWidth = 0.5;
 
+    const cb = (ev) => {
+      // zoom to an object
+      ev.target.series.chart.zoomToMapObject(ev.target);
+
+      // get object info
+      console.log(ev.target.dataItem.dataContext.name);
+
+      this.handleClick();
+    }
+
+    polygonTemplate.events.on("hit", cb);
+
     // Create hover state and set alternative fill color
     let hs = polygonTemplate.states.create("hover");
     hs.properties.fill = chart.colors.getIndex(1).brighten(-0.5);
@@ -59,8 +83,13 @@ class Map extends Component {
   }
 
   render() {
+    console.log(this.state.showMoadel);
+    const Display = this.state.showMoadel ? <Modal/> : null;
     return (
-      <div id="chartdiv" style={{ width: "100%", height: "800px" }}></div>
+      <div>
+        <div id="chartdiv" style={{ width: "100%", height: "800px" }}></div>
+        {Display}
+      </div>
     );
   }
 }

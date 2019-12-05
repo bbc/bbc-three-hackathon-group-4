@@ -3,7 +3,7 @@ import { Modal, ListGroup, Col, Row } from 'react-bootstrap'
 import './modal.css'
 import DemographicImage from '../assets/demographic.png'
 
-export default function home () {
+export default function model () {
   return (
     <Modal.Dialog className="region-modal">
       <Modal.Header closeButton>
