@@ -49,6 +49,33 @@ class Map extends Component {
     let hs = polygonTemplate.states.create("hover");
     hs.properties.fill = chart.colors.getIndex(1).brighten(-0.5);
 
+
+
+  // Set up heat legend
+  let heatLegend = chart.createChild(am4maps.HeatLegend);
+  heatLegend.series = polygonSeries;
+  heatLegend.align = "right";
+  heatLegend.width = am4core.percent(25);
+  heatLegend.marginRight = am4core.percent(4);
+  heatLegend.minValue = 0;
+  heatLegend.maxValue = 40000000;
+  heatLegend.valign = "bottom";
+
+  // Set up custom heat map legend labels using axis ranges
+  var minRange = heatLegend.valueAxis.axisRanges.create();
+  minRange.value = heatLegend.minValue;
+  minRange.label.text = "Unpoplar";
+  var maxRange = heatLegend.valueAxis.axisRanges.create();
+  maxRange.value = heatLegend.maxValue;
+  maxRange.label.text = "Popular";
+
+  // Blank out internal heat legend value axis labels
+  heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function(labelText) {
+    return "";
+  });
+
+
+  
     this.chart = chart;
   }
 
