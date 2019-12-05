@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Container, Navbar } from 'react-bootstrap'
-import  Map from './map'
+import  Map from './Map'
 
 export default function home () {
   return (
