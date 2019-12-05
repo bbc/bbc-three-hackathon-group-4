@@ -29,7 +29,6 @@ class Map extends Component {
   componentDidMount() {
     let chart = am4core.create("chartdiv", am4maps.MapChart);
 
-    chart.titles.create().text = 'United Kingdom';
     chart.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/ukHigh.json";
     chart.geodataSource.events.on("parseended", function (ev) {
       let data = [];
