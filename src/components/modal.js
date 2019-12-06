@@ -47,6 +47,9 @@ class modal extends Component {
               <Col>
                 <ListGroup className="common-characteristics">
                   {regionData[this.props.selectedRegion] ? regionData[this.props.selectedRegion].commonChars.map(chars => <ListGroup.Item>{chars}</ListGroup.Item>) : null}
+                  <ListGroup.Item><button type="button" class="btn btn-primary">Comedy </button></ListGroup.Item>
+                  <ListGroup.Item><button type="button" class="btn btn-primary">Female lead </button></ListGroup.Item>
+                  <ListGroup.Item><button type="button" class="btn btn-primary">30 minute run time </button></ListGroup.Item>
                 </ListGroup>
               </Col>
             </Row>
