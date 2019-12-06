@@ -8,11 +8,14 @@
                 "My Mate's A Bad Date"
             ],
             "Demgraphics": {
-                "imgPath": "../"
+                "imgPath": "london"
             },
             "commonChars": [
-                "tags1",
-                "tags2"
+                "British Actors",
+                "Comedy",
+                "Factual",
+                "Families & Relationships",
+                "30 minute runtime"
             ]
         },
         "Northern Ireland": {
@@ -20,14 +23,18 @@
                 "The Young Offenders ",
                 "Gavin & Stacey",
                 "Ladhood",
-                "RuPaul's drag race"
+                "RuPaul's drag race",
+                "Fleabag"
             ],
             "Demgraphics": {
-                "imgPath": "../"
+                "imgPath": "northern_ireland"
             },
             "commonChars": [
-                "tags1",
-                "tags2"
+                "British Actors",
+                "Comedy",
+                "Drama",
+                "Crime",
+                "30 minute runtime"
             ]
         }
     }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Modal, ListGroup, Col, Row } from 'react-bootstrap'
 import './modal.css'
-import DemographicImage from '../assets/demographic.png'
+import London from '../assets/london.png'
+import Ireland from '../assets/northern_ireland.png'
 import regionData from '../components/regionData.json'
 
 class modal extends Component {
@@ -10,6 +11,7 @@ class modal extends Component {
   }
 
   render() {
+    const demographicImage = this.props.selectedRegion === 'Northern Ireland' ? Ireland : London
     return (
       <Modal show={this.props.show} onHide={this.props.hide} className="region-modal">
         <Modal.Header closeButton>
@@ -33,7 +35,7 @@ class modal extends Component {
             <Row><h4>Demographic Graphics</h4></Row>
             <Row className={"demographics-row"}>
               <Col>
-                <img src={DemographicImage} width="150" height="150" />
+                <img src={demographicImage} width="150" height="150" />
               </Col>
             </Row>
           </div>
@@ -44,16 +46,13 @@ class modal extends Component {
             <Row className={"common-characteristics-row"}>
               <Col>
                 <ListGroup className="common-characteristics">
-                  <ListGroup.Item>Comedy</ListGroup.Item>
-                  <ListGroup.Item>Female lead</ListGroup.Item>
-                  <ListGroup.Item>30 minute run time</ListGroup.Item>
+                {regionData[this.props.selectedRegion] ? regionData[this.props.selectedRegion].commonChars.map(chars => <ListGroup.Item>{chars}</ListGroup.Item>) : null}
                 </ListGroup>
               </Col>
             </Row>
           </div>
 
           {/* google trends? twitter api? scrolling text? trending in this region? */}
-
 
         </Modal.Body>
       </Modal>
