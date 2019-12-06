@@ -5,16 +5,11 @@ import DemographicImage from '../assets/demographic.png'
 import regionData from '../components/regionData.json'
 
 class modal extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  componentDidMount() {
-    console.log(regionData);
-  }
-
-  render () {
-    console.log('Modal render with show', this.props.show)
+  render() {
     return (
       <Modal show={this.props.show} onHide={this.props.hide} className="region-modal">
         <Modal.Header closeButton>
@@ -28,11 +23,7 @@ class modal extends Component {
             <Row className={"top-shows-row"}>
               <Col>
                 <ListGroup className="top-shows">
-                  <ListGroup.Item>1. RuPauls Drag Race UK</ListGroup.Item>
-                  <ListGroup.Item>2. Hometown: A Killing</ListGroup.Item>
-                  <ListGroup.Item>3. The Young Offenders</ListGroup.Item>
-                  <ListGroup.Item>4. Tagged: Life On Lockdown</ListGroup.Item>
-                  <ListGroup.Item>5. Ladhood</ListGroup.Item>
+                  {regionData[this.props.selectedRegion] ? regionData[this.props.selectedRegion].Top.map(show => <ListGroup.Item>{show}</ListGroup.Item>) : null}
                 </ListGroup>
               </Col>
             </Row>
