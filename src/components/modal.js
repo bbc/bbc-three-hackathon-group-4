@@ -25,7 +25,7 @@ class modal extends Component {
             <Row className={"top-shows-row"}>
               <Col>
                 <ListGroup className="top-shows">
-                  {regionData[this.props.selectedRegion] ? regionData[this.props.selectedRegion].Top.map(show => <ListGroup.Item>{show}</ListGroup.Item>) : null}
+    {regionData[this.props.selectedRegion] ? regionData[this.props.selectedRegion].Top.map((show, i) => <ListGroup.Item>{i + 1}. {show}</ListGroup.Item>) : null}
                 </ListGroup>
               </Col>
             </Row>
@@ -46,7 +46,7 @@ class modal extends Component {
             <Row className={"common-characteristics-row"}>
               <Col>
                 <ListGroup className="common-characteristics">
-                {regionData[this.props.selectedRegion] ? regionData[this.props.selectedRegion].commonChars.map(chars => <ListGroup.Item>{chars}</ListGroup.Item>) : null}
+                  {regionData[this.props.selectedRegion] ? regionData[this.props.selectedRegion].commonChars.map(chars => <ListGroup.Item>{chars}</ListGroup.Item>) : null}
                 </ListGroup>
               </Col>
             </Row>
